@@ -1,0 +1,114 @@
+.operations-container {
+    display: flex;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.operations-sidebar {
+    width: 250px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.operations-sidebar h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.sidebar-buttons {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.operations-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+.operations-box {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.operation-item {
+    margin-bottom: 20px;
+}
+
+.operation-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.operation-item select,
+.operation-item input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: #444;
+    border: none;
+    border-radius: 4px;
+    color: white;
+}
+
+.operation-item select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 30px;
+}
+
+.home-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.home-button:hover {
+    background-color: #333;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    .operations-container {
+        flex-direction: column;
+    }
+
+    .operations-sidebar {
+        width: 100%;
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+
+    .operations-content {
+        width: 100%;
+    }
+
+    .sidebar-buttons {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

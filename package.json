@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "lucide-react": "^0.446.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.26.2",
+    "shadcn-ui": "^0.9.1",
     "vite-tsconfig-paths": "^5.0.1"
   },
   "devDependencies": {
