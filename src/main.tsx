@@ -1,18 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './Components/App.tsx'
+import App from './App.tsx'
 import './index.css'
-import { BrowserRouter } from 'react-router-dom';
+
+
+console.log("hi")
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
   </React.StrictMode>,
 )
 
 // Use contextBridge
-window.ipcRenderer.on('main-process-message', (_event, message) => {
+window.electron.ipcRenderer.on('main-process-message', (_event, message) => {
   console.log(message)
 })

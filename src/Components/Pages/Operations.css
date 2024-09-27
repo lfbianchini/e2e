@@ -84,13 +84,13 @@
     background-color: #333;
 }
 
-.submit-button {
+/* .submit-button {
     background-color: #4CAF50;
 }
 
 .submit-button:hover {
     background-color: #45a049;
-}
+} */
 
 @media (max-width: 768px) {
     .operations-container {

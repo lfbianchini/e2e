@@ -10,7 +10,7 @@ function Homepage() {
             <button className="home-button" onClick={() => navigate('newpart')}>
               New Part Number
             </button>
-            <button className="home-button">
+            <button className="home-button" onClick={() => navigate('search')}>
               Existing Part Number
             </button>
           </div>

@@ -1,17 +1,27 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import './Operations.css';
 
 type Operation = {
     id: number;
     dropdownValue: string;
     description: string;
-}
+};
+
+type OperationsData = {
+    uniqueId: string;
+    partNumber: string;
+    description: string;
+    rev: string;
+    date: string;
+    operations: Operation[];
+};
 
 export default function Operations() {
     const navigate = useNavigate();
     const location = useLocation();
-    const { partNumber, description, rev } = location.state || {};
+    const { partNumber, description, rev, date } = location.state || {};
 
     const [operations, setOperations] = useState<Operation[]>([]);
 
@@ -32,11 +42,31 @@ export default function Operations() {
         navigate('/newpart', { state: { partNumber, description, rev } });
     };
 
-    const handleSubmit = () => {
-        // Implement submit logic here
-        console.log('Submitting operations:', operations);
-        navigate('/operations/${partNumber}');
+    const handleSubmit = async () => {
+        try {
+            const uniqueId = uuidv4();
+            const dataToSave: OperationsData = {
+                uniqueId,
+                partNumber,
+                description,
+                rev,
+                date,
+                operations
+            };
+    
+            // Wrap both uniqueId and data in an object
+            const result = await window.electron.ipcRenderer.invoke('save-operations', { uniqueId, jobData: dataToSave });
+            if (result.success) {
+                console.log('Operations saved successfully to:', result.filePath);
+                navigate(`/operations/${uniqueId}`);
+            } else {
+                console.error('Failed to save operations:', result.error);
+            }
+        } catch (error) {
+            console.error('Error saving operations:', error);
+        }
     };
+    
 
     return (
         <div className="operations-container">

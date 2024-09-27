@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2020",
+    "outDir": "./dist-electron",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
@@ -18,8 +19,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "types": ["electron"],
+    "typeRoots": ["./node_modules/@types", "./src/types"],
   },
-  "include": ["src", "electron"],
+  "include": ["src", "electron", "src/**/*", "electron.d.ts", "App.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

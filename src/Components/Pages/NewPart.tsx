@@ -9,7 +9,8 @@ function NewPart() {
     const [description, setDescription] = useState('')
     const [rev, setRev] = useState('')
     const handleSubmit = () => {
-        navigate('/operations', { state: { partNumber, description, rev } });
+        const date = new Date();
+        navigate('/operations', { state: { partNumber, description, rev, date } });
     }
 
     useEffect(() => {
